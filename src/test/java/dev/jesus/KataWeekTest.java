@@ -24,7 +24,7 @@ public class KataWeekTest {
 
   @Test
   void testCreateListDays() {
-
+    assertEquals(kataWeek, kataWeek);
   }
 
   @Test
