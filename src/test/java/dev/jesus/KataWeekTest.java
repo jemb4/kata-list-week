@@ -46,12 +46,20 @@ public class KataWeekTest {
 
   @Test
   void testGetDays() {
+    List<String> result = kataWeek.getDays();
 
+    assertTrue(result.contains("Lunes"));
+    assertTrue(result.contains("Jueves"));
+    assertTrue(result.contains("Domingo"));
   }
 
   @Test
   void testGetWeekSize() {
+    int expected = 7;
 
+    int result = kataWeek.getWeekSize();
+
+    assertEquals(result, expected);
   }
 
   @Test

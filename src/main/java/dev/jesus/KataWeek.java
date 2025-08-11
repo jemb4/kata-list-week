@@ -34,7 +34,7 @@ public class KataWeek {
 
   }
 
-  public String getDay(int numbDay) {
+  public String getDay(String day) {
     return "";
   }
 
