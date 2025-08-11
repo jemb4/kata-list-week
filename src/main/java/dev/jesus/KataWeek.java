@@ -39,6 +39,9 @@ public class KataWeek {
   }
 
   public boolean dayExist(String day) {
+    for (String string : weekDaysList) {
+      string.contains(day);
+    }
     return true;
   }
 
