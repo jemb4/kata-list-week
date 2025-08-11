@@ -50,6 +50,6 @@ public class KataWeek {
   }
 
   public void clearList() {
-
+    weekDaysList.clear();
   }
 }
