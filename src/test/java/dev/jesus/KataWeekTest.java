@@ -25,7 +25,7 @@ public class KataWeekTest {
 
   @Test
   void testCreateListDays() {
-    assertEquals(kataWeek, kataWeek);
+    assertThat(7, is(equalTo(kataWeek.getWeekSize())));
   }
 
   @Test
@@ -41,8 +41,6 @@ public class KataWeekTest {
   void testDeleteDay() {
     kataWeek.getDays();
     kataWeek.deleteDay("Miércoles");
-
-    System.out.println(kataWeek.getDays());
 
     assertThat(6, is(equalTo(kataWeek.getWeekSize())));
     assertFalse(kataWeek.dayExist("Miércoles"));
@@ -73,7 +71,13 @@ public class KataWeekTest {
 
   @Test
   void testOrderList() {
-    assertThat(null, false);
+    String expectedPos0 = "Domingo";
+
+    kataWeek.orderList();
+
+    List<String> result = kataWeek.getDays();
+
+    assertThat(expectedPos0, is(equalTo(result.get(0))));
   }
 
   @Test

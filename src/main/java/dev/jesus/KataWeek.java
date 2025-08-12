@@ -1,6 +1,8 @@
 package dev.jesus;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class KataWeek {
@@ -40,7 +42,7 @@ public class KataWeek {
 
   public boolean dayExist(String day) {
     for (String string : weekDaysList) {
-      if (string.contains(day)) {
+      if (string.equalsIgnoreCase(day)) {
         return true;
       }
     }
@@ -48,7 +50,7 @@ public class KataWeek {
   }
 
   public void orderList() {
-
+    Collections.sort(weekDaysList);
   }
 
   public void clearList() {
