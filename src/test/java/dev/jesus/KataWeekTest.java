@@ -4,22 +4,23 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
 
 public class KataWeekTest {
 
   private KataWeek kataWeek;
+  private String[] days4test = new String[] { "Lunes", "Jueves", "Domingo" };
 
   @BeforeEach
   void setUp() {
     kataWeek = new KataWeek();
+    kataWeek.createListDays();
   }
 
   @Test
@@ -29,18 +30,26 @@ public class KataWeekTest {
 
   @Test
   void testDayExist() {
-    Boolean result = kataWeek.dayExist("Monday");
+    Boolean resultTrue = kataWeek.dayExist("Lunes");
+    Boolean resultFalse = kataWeek.dayExist("Lun");
 
-    assertTrue(result);
+    assertTrue(resultTrue);
+    assertFalse(resultFalse);
   }
 
   @Test
   void testDeleteDay() {
+    kataWeek.getDays();
+    kataWeek.deleteDay("Miércoles");
 
+    System.out.println(kataWeek.getDays());
+
+    assertThat(6, is(equalTo(kataWeek.getWeekSize())));
+    assertFalse(kataWeek.dayExist("Miércoles"));
   }
 
   @Test
-  void testGetDay() {
+  void testGetRequestedDay() {
 
   }
 
@@ -59,12 +68,12 @@ public class KataWeekTest {
 
     int result = kataWeek.getWeekSize();
 
-    assertEquals(result, expected);
+    assertThat(result, is(equalTo(expected)));
   }
 
   @Test
   void testOrderList() {
-
+    assertThat(null, false);
   }
 
   @Test

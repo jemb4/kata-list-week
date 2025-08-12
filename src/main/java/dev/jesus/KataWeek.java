@@ -6,6 +6,9 @@ import java.util.List;
 public class KataWeek {
 
   private List<String> weekDaysList;
+  private String[] daysArray = new String[] {
+      "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"
+  };
 
   public KataWeek() {
     createListDays();
@@ -13,13 +16,10 @@ public class KataWeek {
 
   public void createListDays() {
     weekDaysList = new ArrayList<>();
-    weekDaysList.add("Lunes");
-    weekDaysList.add("Martes");
-    weekDaysList.add("Miércoles");
-    weekDaysList.add("Jueves");
-    weekDaysList.add("Viernes");
-    weekDaysList.add("Sábado");
-    weekDaysList.add("Domingo");
+
+    for (String string : daysArray) {
+      weekDaysList.add(string);
+    }
   }
 
   public List<String> getDays() {
@@ -31,18 +31,20 @@ public class KataWeek {
   }
 
   public void deleteDay(String day) {
-
+    weekDaysList.remove(day);
   }
 
-  public String getDay(String day) {
+  public String getRequestedDay(String day) {
     return "";
   }
 
   public boolean dayExist(String day) {
     for (String string : weekDaysList) {
-      string.contains(day);
+      if (string.contains(day)) {
+        return true;
+      }
     }
-    return true;
+    return false;
   }
 
   public void orderList() {
