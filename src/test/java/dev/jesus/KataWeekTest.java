@@ -39,7 +39,6 @@ public class KataWeekTest {
 
   @Test
   void testDeleteDay() {
-    kataWeek.getDays();
     kataWeek.deleteDay("Miércoles");
 
     assertThat(6, is(equalTo(kataWeek.getWeekSize())));
@@ -47,17 +46,32 @@ public class KataWeekTest {
   }
 
   @Test
-  void testGetRequestedDay() {
+  void testGetRequestedDay_WhenIndexIs_InsideTheList() {
+    String expected = "Viernes";
 
+    String result = kataWeek.getRequestedDay(4);
+
+    assertThat(result, is(equalTo(expected)));
+  }
+
+  @Test
+  void testGetRequestedDay_WhenIndexIs_OutsideTheList() {
+    String expected = "";
+
+    String resultWithMinus2 = kataWeek.getRequestedDay(-2);
+    String resultWith9 = kataWeek.getRequestedDay(9);
+
+    assertThat(resultWithMinus2, is(equalTo(expected)));
+    assertThat(resultWith9, is(equalTo(expected)));
   }
 
   @Test
   void testGetDays() {
     List<String> result = kataWeek.getDays();
 
-    assertTrue(result.contains("Lunes"));
-    assertTrue(result.contains("Jueves"));
-    assertTrue(result.contains("Domingo"));
+    for (String string : days4test) {
+      assertTrue(result.contains(string));
+    }
   }
 
   @Test

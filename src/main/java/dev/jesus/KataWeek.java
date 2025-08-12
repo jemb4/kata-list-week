@@ -1,7 +1,6 @@
 package dev.jesus;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -36,8 +35,11 @@ public class KataWeek {
     weekDaysList.remove(day);
   }
 
-  public String getRequestedDay(String day) {
-    return "";
+  public String getRequestedDay(int index) {
+    if (index > weekDaysList.size() || index < 0)
+      return "";
+
+    return weekDaysList.get(index);
   }
 
   public boolean dayExist(String day) {
